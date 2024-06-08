@@ -1,0 +1,13 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+nav a {
+  margin-right: 10px;
+}
+
+
+.logo_image {
+  width: 50px;
+  height: auto;
+}

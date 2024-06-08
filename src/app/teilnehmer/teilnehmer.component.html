@@ -1,0 +1,37 @@
+<p> Hier werden die Teilnehmer angezeigt und die Anwesenheit überprüft!</p>
+
+<div>
+  <h2>Neuen Teilnehmer hinzufügen</h2>
+  <form (ngSubmit)="addTeilnehmer()">
+    <div>
+      <label for="vorname">Vorname:</label>
+      <input type="text" id="vorname" [(ngModel)]="newTeilnehmer.vorname" name="vorname" required>
+    </div>
+    <div>
+      <label for="nachname">Nachname:</label>
+      <input type="text" id="nachname" [(ngModel)]="newTeilnehmer.nachname" name="nachname" required>
+    </div>
+    <button type="submit">Teilnehmer hinzufügen</button>
+  </form>
+
+  <h2>Teilnehmerliste</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Vorname</th>
+        <th>Nachname</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teilnehmer of objects" (click)="onSelect(teilnehmer)">
+        <td>{{ teilnehmer.id }}</td>
+        <td>{{ teilnehmer.vorname }}</td>
+        <td>{{ teilnehmer.nachname }}</td>
+        <td>
+          <button (click)="onDelete(teilnehmer); $event.stopPropagation()">Löschen</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
