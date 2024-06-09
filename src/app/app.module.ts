@@ -13,6 +13,9 @@ import { TeilnehmerComponent } from './teilnehmer/teilnehmer.component';
 import { ChoreografienComponent } from './choreografien/choreografien.component';
 import { LiederComponent } from './lieder/lieder.component';
 import { TeilnehmerService } from './shared/teilnehmer.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSliderModule } from '@angular/material/slider';
+
 
 
 @NgModule({
@@ -30,7 +33,9 @@ import { TeilnehmerService } from './shared/teilnehmer.service';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatIconModule,
+    MatSliderModule
   ],
   providers: [
     provideAnimationsAsync(),
