@@ -11,7 +11,7 @@
       <label for="nachname">Nachname:</label>
       <input type="text" id="nachname" [(ngModel)]="newTeilnehmer.nachname" name="nachname" required>
     </div>
-    <button type="submit">{{ selectedObject ? 'Teilnehmer aktualisieren' : 'Teilnehmer hinzufügen' }}</button>
+    <button mat-flat-button color="primary" type="submit">{{ selectedObject ? 'Teilnehmer aktualisieren' : 'Teilnehmer hinzufügen' }}</button>
   </form>
 </div>
 
@@ -27,13 +27,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let teilnehmer of objects" (click)="onSelect(teilnehmer)">
+      <tr *ngFor="let teilnehmer of objects" (click)="onSelect(teilnehmer)" [class.selected]="selectedObject === teilnehmer">
         <td>{{ teilnehmer.id }}</td>
         <td>{{ teilnehmer.vorname }}</td>
         <td>{{ teilnehmer.nachname }}</td>
         <td>
-          <button (click)="onEdit(teilnehmer); $event.stopPropagation()">Bearbeiten</button>
-          <button (click)="onDelete(teilnehmer); $event.stopPropagation()">Löschen</button>
+          <button mat-flat-button color="primary" (click)="onEdit(teilnehmer); $event.stopPropagation()">Bearbeiten</button>
+          <button mat-flat-button color="warn" [disabled]="!selectedObject || selectedObject !== teilnehmer" (click)="onDelete(teilnehmer); $event.stopPropagation()">Löschen</button>
         </td>
       </tr>
     </tbody>
