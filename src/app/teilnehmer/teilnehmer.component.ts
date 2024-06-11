@@ -38,7 +38,7 @@ export class TeilnehmerComponent implements OnInit {
   addOrUpdateTeilnehmer(): void {
     if (this.newTeilnehmer.vorname && this.newTeilnehmer.nachname) {
       if (this.selectedObject) {
-        // Update : Bearbiten von Teilnehmern
+        // Update: Bearbiten von Teilnehmern
         const index = this.objects.findIndex(t => t.id === this.selectedObject!.id);
         if (index !== -1) {
           this.objects[index] = { ...this.newTeilnehmer };
