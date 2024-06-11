@@ -1,0 +1,18 @@
+<div>
+  <h2>Anwesenheitsliste</h2>
+  <button mat-flat-button color="primary" (click)="addColumn()">Spalte hinzufügen</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Teilnehmer</th>
+        <th *ngFor="let column of extraColumns">{{ column }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teilnehmer of teilnehmerListe">
+        <td>{{ teilnehmer.id }} {{ teilnehmer.vorname }} {{ teilnehmer.nachname }}</td>
+        <td *ngFor="let column of extraColumns">{{ teilnehmer[column] || '' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

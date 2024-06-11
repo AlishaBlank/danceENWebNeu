@@ -15,6 +15,7 @@ import { LiederComponent } from './lieder/lieder.component';
 import { TeilnehmerService } from './shared/teilnehmer.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
+import { AnwesenheitslisteComponent } from './anwesenheitsliste/anwesenheitsliste.component';
 
 
 
@@ -24,7 +25,8 @@ import { MatSliderModule } from '@angular/material/slider';
     NavigationComponent,
     TeilnehmerComponent,
     ChoreografienComponent,
-    LiederComponent
+    LiederComponent,
+    AnwesenheitslisteComponent
   ],
   imports: [
     BrowserModule,
