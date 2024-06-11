@@ -1,8 +1,8 @@
-<p> Hier werden die Teilnehmer angezeigt und die Anwesenheit überprüft!</p>
+<p>Hier werden die Teilnehmer angezeigt und die Anwesenheit überprüft!</p>
 
 <div>
   <h2>Neuen Teilnehmer hinzufügen</h2>
-  <form (ngSubmit)="addTeilnehmer()">
+  <form (ngSubmit)="addOrUpdateTeilnehmer()">
     <div>
       <label for="vorname">Vorname:</label>
       <input type="text" id="vorname" [(ngModel)]="newTeilnehmer.vorname" name="vorname" required>
@@ -11,7 +11,7 @@
       <label for="nachname">Nachname:</label>
       <input type="text" id="nachname" [(ngModel)]="newTeilnehmer.nachname" name="nachname" required>
     </div>
-    <button type="submit">Teilnehmer hinzufügen</button>
+    <button type="submit">{{ selectedObject ? 'Teilnehmer aktualisieren' : 'Teilnehmer hinzufügen' }}</button>
   </form>
 </div>
 
@@ -32,6 +32,7 @@
         <td>{{ teilnehmer.vorname }}</td>
         <td>{{ teilnehmer.nachname }}</td>
         <td>
+          <button (click)="onEdit(teilnehmer); $event.stopPropagation()">Bearbeiten</button>
           <button (click)="onDelete(teilnehmer); $event.stopPropagation()">Löschen</button>
         </td>
       </tr>

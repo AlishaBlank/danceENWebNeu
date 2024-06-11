@@ -1,40 +1,33 @@
-import { EventEmitter, Injectable, Output } from '@angular/core';
-import { Teilnehmer } from 'C:/Users/lisha/source/repos/danceENWeb/src/app/datamodels/teilnehmerliste';
-
-
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Teilnehmer } from '../datamodels/teilnehmerliste';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class TeilnehmerService {
-  @Output() changed = new EventEmitter<void>();
-
-  private objects: Teilnehmer[] = [
-    { id: 1, vorname: 'TestVor1', nachname: 'TestNach1' },
-    { id: 2, vorname: 'TestVor2', nachname: 'TestNach2' }
-  ];
-
-  constructor() { }
-
-  teilnehmerHinzufuegen(teilnehmer: Teilnehmer): void {
-    this.objects.push(teilnehmer);
-    this.changed.emit();
-  }
+  private teilnehmerListe: Teilnehmer[] = [];
+  changed = new Subject<void>();
 
   getTeilnehmerListe(): Teilnehmer[] {
-    return this.objects.slice();
+    return this.teilnehmerListe;
   }
 
-  async getAll(): Promise<Teilnehmer[]> {
-    return this.objects.slice();
+  teilnehmerHinzufuegen(teilnehmer: Teilnehmer): void {
+    this.teilnehmerListe.push(teilnehmer);
+    this.changed.next();
   }
 
-  remove(obj: Teilnehmer): void {
-    const index = this.objects.findIndex(x => x.id === obj.id);
+  remove(teilnehmer: Teilnehmer): void {
+    this.teilnehmerListe = this.teilnehmerListe.filter(t => t.id !== teilnehmer.id);
+    this.changed.next();
+  }
+
+  update(teilnehmer: Teilnehmer): void {
+    const index = this.teilnehmerListe.findIndex(t => t.id === teilnehmer.id);
     if (index !== -1) {
-      this.objects.splice(index, 1);
-      this.changed.emit();
+      this.teilnehmerListe[index] = teilnehmer;
+      this.changed.next();
     }
   }
 }

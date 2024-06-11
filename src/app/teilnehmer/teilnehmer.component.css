@@ -16,3 +16,10 @@ th {
 .selected {
   background-color: #d3d3d3;
 }
+
+button {
+    margin: 5px;
+    padding: 3px;
+    border: 1px;
+    background-color: lightgray;
+}
