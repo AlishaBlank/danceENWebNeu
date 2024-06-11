@@ -1,0 +1,11 @@
+<form>
+  <div class="form-group">
+    <label for="email">E-Mail</label>
+    <input type="email" class="form-control" id="email" #email placeholder="Mailadresse eingeben">
+  </div>
+  <div class="form-group">
+    <label for="password">Passwort</label>
+    <input type="password" class="form-control" id="password" #password placeholder="Passwort">
+  </div>
+  <button type="button" class="btn btn-primary" (click)="onSubmit(email.value, password.value)">Login</button>
+</form>

@@ -16,6 +16,8 @@ import { TeilnehmerService } from './shared/teilnehmer.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { AnwesenheitslisteComponent } from './anwesenheitsliste/anwesenheitsliste.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthorizationService } from './shared/authorization-service.service';
 
 
 
@@ -26,7 +28,8 @@ import { AnwesenheitslisteComponent } from './anwesenheitsliste/anwesenheitslist
     TeilnehmerComponent,
     ChoreografienComponent,
     LiederComponent,
-    AnwesenheitslisteComponent
+    AnwesenheitslisteComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { AnwesenheitslisteComponent } from './anwesenheitsliste/anwesenheitslist
   ],
   providers: [
     provideAnimationsAsync(),
-    TeilnehmerService
+    TeilnehmerService,
+    AuthorizationService
   ],
   bootstrap: [AppComponent]
 })

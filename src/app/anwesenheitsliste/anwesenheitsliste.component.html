@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let teilnehmer of teilnehmerListe">
+      <tr *ngFor="let teilnehmer of objects">
         <td>{{ teilnehmer.id }} {{ teilnehmer.vorname }} {{ teilnehmer.nachname }}</td>
         <td *ngFor="let column of extraColumns">{{ teilnehmer[column] || '' }}</td>
       </tr>

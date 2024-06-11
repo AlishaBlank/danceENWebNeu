@@ -8,13 +8,17 @@ import { Teilnehmer } from '../datamodels/teilnehmerliste'
   styleUrls: ['./anwesenheitsliste.component.css']
 })
 export class AnwesenheitslisteComponent implements OnInit {
-  teilnehmerListe: Teilnehmer[] = [];
+  objects: Teilnehmer[] = [];
   extraColumns: string[] = [];
   
 
   constructor(private teilnehmerService: TeilnehmerService) { }
 
   ngOnInit(): void {
+    this.objects = this.teilnehmerService.getTeilnehmerListe();
+    this.teilnehmerService.changed.subscribe(() => {
+      this.objects = this.teilnehmerService.getTeilnehmerListe();
+    });
   }
 
   addColumn(): void {
@@ -22,7 +26,7 @@ export class AnwesenheitslisteComponent implements OnInit {
     if (columnName) {
       this.extraColumns.push(columnName);
       // Optional: Initialisiere die neue Spalte mit leeren Werten für vorhandene Teilnehmer
-      this.teilnehmerListe = this.teilnehmerListe.map(teilnehmer => ({
+      this.objects = this.objects.map(teilnehmer => ({
         ...teilnehmer,
         [columnName]: ''
       }));

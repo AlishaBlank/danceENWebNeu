@@ -1,7 +1,12 @@
 export class Teilnehmer {
-  constructor(
-    public id: number,
-    public vorname: string,
-    public nachname: string
-  ) { }
+  id: number;
+  vorname: string;
+  nachname: string;
+  [key: string]: any;
+
+  constructor(id: number, vorname: string, nachname: string) {
+    this.id = id;
+    this.vorname = vorname;
+    this.nachname = nachname;
+  }
 }
