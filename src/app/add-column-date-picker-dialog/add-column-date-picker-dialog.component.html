@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Neue Spalte hinzufügen</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Wählen Sie ein Datum</mat-label>
+    <input matInput [(ngModel)]="date" [matDatepicker]="picker" placeholder="TT/MM/JJJJ">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Abbrechen</button>
+  <button mat-button color="primary" (click)="onAdd()">Hinzufügen</button>
+</div>

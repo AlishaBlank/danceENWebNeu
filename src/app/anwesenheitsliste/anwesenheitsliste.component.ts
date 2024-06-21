@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TeilnehmerService } from '../shared/teilnehmer.service'
 import { Teilnehmer } from '../datamodels/teilnehmerliste'
+import { MatDialog } from '@angular/material/dialog';
+import { AddColumnDatePickerDialogComponent } from '../add-column-date-picker-dialog/add-column-date-picker-dialog.component';
 
 @Component({
   selector: 'app-anwesenheitsliste',
@@ -12,7 +14,7 @@ export class AnwesenheitslisteComponent implements OnInit {
   extraColumns: string[] = [];
   
 
-  constructor(private teilnehmerService: TeilnehmerService) { }
+  constructor(private teilnehmerService: TeilnehmerService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.objects = this.teilnehmerService.getTeilnehmerListe();
@@ -21,8 +23,24 @@ export class AnwesenheitslisteComponent implements OnInit {
     });
   }
 
+
   addColumn(): void {
-    const columnName = prompt("Bitte geben Sie den Namen der neuen Spalte ein:");
+    const dialogRef = this.dialog.open(AddColumnDatePickerDialogComponent, {
+      width: '300px'
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        const newColumn: string = result.date
+        this.extraColumns.push(newColumn);
+      }
+    });
+  }
+
+
+}
+
+
+/*const columnName = prompt("Bitte geben Sie den Namen der neuen Spalte ein:");
     if (columnName) {
       this.extraColumns.push(columnName);
       // Optional: Initialisiere die neue Spalte mit leeren Werten für vorhandene Teilnehmer
@@ -30,6 +48,4 @@ export class AnwesenheitslisteComponent implements OnInit {
         ...teilnehmer,
         [columnName]: ''
       }));
-    }
-  }
-}
+    } */

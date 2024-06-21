@@ -22,6 +22,11 @@ import { AddLinkDialogComponent } from './add-link-dialog/add-link-dialog.compon
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { AddColumnDatePickerDialogComponent } from './add-column-date-picker-dialog/add-column-date-picker-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { LOCALE_ID } from '@angular/core';
 
 
 
@@ -34,7 +39,8 @@ import { MatInputModule } from '@angular/material/input';
     LiederComponent,
     AnwesenheitslisteComponent,
     LoginComponent,
-    AddLinkDialogComponent
+    AddLinkDialogComponent,
+    AddColumnDatePickerDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -48,12 +54,16 @@ import { MatInputModule } from '@angular/material/input';
     MatSliderModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     provideAnimationsAsync(),
     TeilnehmerService,
-    AuthorizationService
+    AuthorizationService,
+    { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
+    { provide: LOCALE_ID, useValue: 'de-DE' }
   ],
   bootstrap: [AppComponent]
 })
