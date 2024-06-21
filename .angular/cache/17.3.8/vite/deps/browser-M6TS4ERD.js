@@ -20,7 +20,8 @@ import {
   normalizeKeyframes,
   validateStyleProperty,
   validateWebAnimatableStyleProperty
-} from "./chunk-XLDSQFWN.js";
+} from "./chunk-GWJA7ZAX.js";
+import "./chunk-KD3LE2VQ.js";
 import "./chunk-V4I6KYGB.js";
 import "./chunk-CHRFX2HE.js";
 import "./chunk-R7GQRDZ6.js";
@@ -47,4 +48,4 @@ export {
   validateStyleProperty as ɵvalidateStyleProperty,
   validateWebAnimatableStyleProperty as ɵvalidateWebAnimatableStyleProperty
 };
-//# sourceMappingURL=browser-QZCCVM6P.js.map
+//# sourceMappingURL=browser-M6TS4ERD.js.map

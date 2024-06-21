@@ -6,7 +6,8 @@ import {
   NoopAnimationDriver,
   WebAnimationsDriver,
   WebAnimationsStyleNormalizer
-} from "./chunk-XLDSQFWN.js";
+} from "./chunk-GWJA7ZAX.js";
+import "./chunk-KD3LE2VQ.js";
 import {
   BrowserModule,
   DomRendererFactory2

@@ -6,3 +6,16 @@
     <source src="../../assets/songs/Stray Kids - LALALALA.mp3" type="audio/mpeg">
   </audio>
 </div>
+
+<div>
+  <h2>Liste von Links</h2>
+
+  <button mat-raised-button color="primary" (click)="openAddLinkDialog()">Neuen Link hinzufügen</button>
+
+  <ul>
+    <li *ngFor="let link of links">
+      <a [href]="link.url" target="_blank" rel="noopener noreferrer">{{ link.titel }}</a>
+    </li>
+  </ul>
+</div>
+

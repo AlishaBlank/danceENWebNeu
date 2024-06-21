@@ -18,6 +18,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AnwesenheitslisteComponent } from './anwesenheitsliste/anwesenheitsliste.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthorizationService } from './shared/authorization-service.service';
+import { AddLinkDialogComponent } from './add-link-dialog/add-link-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -29,7 +33,8 @@ import { AuthorizationService } from './shared/authorization-service.service';
     ChoreografienComponent,
     LiederComponent,
     AnwesenheitslisteComponent,
-    LoginComponent
+    LoginComponent,
+    AddLinkDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,10 @@ import { AuthorizationService } from './shared/authorization-service.service';
     MatButtonModule,
     FormsModule,
     MatIconModule,
-    MatSliderModule
+    MatSliderModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     provideAnimationsAsync(),
