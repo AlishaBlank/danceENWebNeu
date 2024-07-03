@@ -4,7 +4,7 @@
   <div *ngFor="let teilnehmer of teilnehmer"
        cdkDrag
        class="teilnehmer"
-[ngStyle]="{'left.px': teilnehmer.position.x, 'top.px': teilnehmer.position.y}"       (cdkDragEnded)="onDragEnded($event, teilnehmer)">
+[ngStyle]="{'left.px': teilnehmer.position.x, 'top.px': teilnehmer.position.y}" (cdkDragEnded)="onDragEnded($event, teilnehmer)">
     {{teilnehmer.name}}
   </div>
 </div>
