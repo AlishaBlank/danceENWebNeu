@@ -1,1 +1,8 @@
 <p>Hier kommen die Choreografien hin!</p>
+
+<div class="choreography-grid">
+  <div *ngFor="let teilnehmer of teilnehmer"
+       [ngStyle]="{'top': teilnehmer.position.y + 'px', 'left': teilnehmer.position.x + 'px'}">
+    {{teilnehmer.name}}
+  </div>
+</div>

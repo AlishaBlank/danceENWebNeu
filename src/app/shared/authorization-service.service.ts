@@ -13,12 +13,13 @@ export class AuthorizationService {
   }
 
   login(email: string, password: string): boolean {
-    if (email === 'user@example.com' && password === 'password') {
+    if (email === 'alisha.blank@stud.hshl.de' && password === 'password') {
       this.is_logged_in = true;
       this.changed.emit(true);
       return true;
     } else {
       return false;
+      
     }
   }
 

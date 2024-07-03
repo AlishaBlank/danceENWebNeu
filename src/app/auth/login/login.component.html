@@ -8,4 +8,7 @@
     <input type="password" class="form-control" id="password" #password placeholder="Passwort">
   </div>
   <button type="button" class="btn btn-primary" (click)="onSubmit(email.value, password.value)">Login</button>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
 </form>
