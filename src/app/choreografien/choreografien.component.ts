@@ -1,25 +1,22 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { TeilnehmerComponent } from '../teilnehmer/teilnehmer.component';
-import { TeilnehmerService } from '../shared/teilnehmer.service';
-import { Teilnehmer } from '../datamodels/teilnehmerliste';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-choreografien',
   templateUrl: './choreografien.component.html',
-  styleUrl: './choreografien.component.css'
+  styleUrls: ['./choreografien.component.css']
 })
-export class ChoreografienComponent implements AfterViewInit{
+export class ChoreografienComponent implements AfterViewInit {
   @ViewChild('choreographyGrid') choreographyGrid!: ElementRef<HTMLDivElement>;
   teilnehmer = [
-    { name: 'BC', position: { x: 50, y: 50 } },
-    { name: 'CB', position: { x: 100, y: 100 } },
-    { name: 'FL', position: { x: 150, y: 150 } },
-    { name: 'H', position: { x: 200, y: 200 } },
-    { name: 'HJ', position: { x: 250, y: 250 } },
-    { name: 'IN', position: { x: 300, y: 300 } },
-    { name: 'LK', position: { x: 350, y: 350 } },
-    { name: 'SM', position: { x: 400, y: 400 } }
+    { name: 'BC', position: { x: 50, y: 25 } },
+    { name: 'CB', position: { x: 100, y: 50 } },
+    { name: 'FL', position: { x: 150, y: 75 } },
+    { name: 'H', position: { x: 200, y: 100 } },
+    { name: 'HJ', position: { x: 250, y: 125 } },
+    { name: 'IN', position: { x: 300, y: 150 } },
+    { name: 'LK', position: { x: 350, y: 175 } },
+    { name: 'SM', position: { x: 400, y: 200 } }
   ];
 
   gridWidth!: number;
@@ -32,8 +29,8 @@ export class ChoreografienComponent implements AfterViewInit{
 
   onDragEnded(event: CdkDragEnd, teilnehmer: any) {
     const element: HTMLElement = event.source.element.nativeElement;
-    const rect = element.getBoundingClientRect();
 
+    // Calculate the new position
     const offsetX = event.distance.x;
     const offsetY = event.distance.y;
 
@@ -53,10 +50,11 @@ export class ChoreografienComponent implements AfterViewInit{
       newY = this.gridHeight - element.offsetHeight;
     }
 
+    // Update the position of the participant
     teilnehmer.position.x = newX;
     teilnehmer.position.y = newY;
 
-    // Update the position in the DOM (optional if you don't rely on Angular change detection)
-    element.style.transform = `translate(${newX}px, ${newY}px)`;
+    // Reset the transformation to apply the new position in the DOM
+    event.source.reset();
   }
 }
