@@ -12,3 +12,7 @@ th, td {
 th {
   background-color: blueviolet;
 }
+
+ button {
+     margin: 5px;
+ }

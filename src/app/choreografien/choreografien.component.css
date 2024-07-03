@@ -1,12 +1,13 @@
 .choreography-grid {
   margin: 10px;
-  position: relative;
-  width: 400px; /* Breite des Grids */
-  height: 200px; /* Höhe des Grids */
-  border: 1px solid #000;
   display: grid;
-  grid-template-rows: repeat(10, 1fr); /* Beispiel mit 10 Reihen */
-  grid-template-columns: repeat(10, 1fr); /* Beispiel mit 10 Spalten */
+  grid-template-rows: repeat(10, 1fr); /* 10 Reihen */
+  grid-template-columns: repeat(10, 1fr); /* 10 Spalten */
+  position: relative;
+  width: 400px; 
+  height: 200px; 
+  border: 1px solid #000;
+  
  
 }
 
