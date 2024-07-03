@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TeilnehmerComponent } from '../teilnehmer/teilnehmer.component';
 import { TeilnehmerService } from '../shared/teilnehmer.service';
 import { Teilnehmer } from '../datamodels/teilnehmerliste';
+import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-choreografien',
@@ -19,7 +20,13 @@ export class ChoreografienComponent {
     { name: 'IN', position: { x: 300, y: 300 } },
     { name: 'LK', position: { x: 350, y: 350 } },
     { name: 'SM', position: { x: 400, y: 400 } }
-    
   ];
 
+  onDragEnded(event: CdkDragEnd, teilnehmer: any) {
+    const element: HTMLElement = event.source.element.nativeElement;
+    const rect = element.getBoundingClientRect();
+
+    teilnehmer.position.x = rect.left;
+    teilnehmer.position.y = rect.top;
+  }
 }

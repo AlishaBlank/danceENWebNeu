@@ -2,14 +2,16 @@ import {
   NG_VALUE_ACCESSOR
 } from "./chunk-UZLQAKCI.js";
 import {
-  Directionality,
   MAT_RIPPLE_GLOBAL_OPTIONS,
   MatCommonModule,
   MatRipple,
   MatRippleModule,
-  Platform,
   RippleState
-} from "./chunk-XGWSKLB7.js";
+} from "./chunk-VBWHQE2F.js";
+import {
+  Directionality,
+  Platform
+} from "./chunk-5DGP74FZ.js";
 import "./chunk-4MOHW5LC.js";
 import {
   ANIMATION_MODULE_TYPE,

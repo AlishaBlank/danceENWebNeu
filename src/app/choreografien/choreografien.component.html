@@ -2,7 +2,10 @@
 
 <div class="choreography-grid">
   <div *ngFor="let teilnehmer of teilnehmer"
-       [ngStyle]="{'top': teilnehmer.position.y + 'px', 'left': teilnehmer.position.x + 'px'}">
+       cdkDrag
+       class="teilnehmer"
+       [ngStyle]="{'top': teilnehmer.position.y + 'px', 'left': teilnehmer.position.x + 'px'}"
+       (cdkDragEnded)="onDragEnded($event, teilnehmer)">
     {{teilnehmer.name}}
   </div>
 </div>
