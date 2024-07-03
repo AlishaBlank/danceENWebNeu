@@ -32,6 +32,7 @@ export class TeilnehmerComponent implements OnInit {
 
   onDelete(obj: Teilnehmer): void {
     this.teilnehmerService.remove(obj);
+    this.updateTeilnehmerIds();
     this.selectedObject = null;
   }
 
@@ -51,6 +52,14 @@ export class TeilnehmerComponent implements OnInit {
       }
       this.newTeilnehmer = { id: 0, vorname: '', nachname: '' };
       this.selectedObject = null;
+      this.updateTeilnehmerIds();
     }
+  }
+
+  updateTeilnehmerIds(): void {
+    this.objects.forEach((obj, index) => {
+      obj.id = index + 1;
+      this.teilnehmerService.update(obj);
+    });
   }
 }

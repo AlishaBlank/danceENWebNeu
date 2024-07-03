@@ -19,8 +19,11 @@ export class TeilnehmerService {
   }
 
   remove(teilnehmer: Teilnehmer): void {
-    this.teilnehmerListe = this.teilnehmerListe.filter(t => t.id !== teilnehmer.id);
-    this.changed.next();
+    const index = this.teilnehmerListe.indexOf(teilnehmer);
+    if (index > -1) {
+      this.teilnehmerListe.splice(index, 1);
+      this.changed.next();
+    }
   }
 
   update(teilnehmer: Teilnehmer): void {

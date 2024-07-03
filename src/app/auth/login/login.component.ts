@@ -20,7 +20,7 @@ export class LoginComponent {
   onSubmit(email: string, password: string) {
     if (!this.auth.login(email, password)) {
       this.login_error = true;
-      this.errorMessage = 'Das Passwort ist falsch!'
+      this.errorMessage = 'Email oder Passwort falsch!'
     }
   }
 }
