@@ -3,7 +3,7 @@
 <button mat-flat-button color="primary" (click)="addChoreography()">Choreografie hinzufügen</button>
 
 <div *ngFor="let choreo of choreographies">
-  <button mat-flat-button color="primary" (click)="toggleDiv(choreo.id)">Choreografie {{ choreo.id }}</button>
+  <button mat-flat-button color="primary" (click)="toggleDiv(choreo.id)">{{ choreo.name }}</button>
   <div #choreographyGrid class="choreography-grid" *ngIf="choreo.isVisible">
     <div *ngFor="let teilnehmer of choreo.teilnehmer"
          cdkDrag

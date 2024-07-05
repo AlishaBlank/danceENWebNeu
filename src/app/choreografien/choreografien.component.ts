@@ -8,22 +8,17 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
 })
 export class ChoreografienComponent implements AfterViewInit {
   @ViewChild('choreographyGrid', { static: false }) choreographyGrid!: ElementRef<HTMLDivElement>;
-  choreographies = [
-    {
-      id: 1,
-      isVisible: true,
-      teilnehmer: [
-        { name: 'BC', position: { x: 40, y: 0 } },
-        { name: 'CB', position: { x: 80, y: 0 } },
-        { name: 'FL', position: { x: 120, y: 0 } },
-        { name: 'H', position: { x: 160, y: 0 } },
-        { name: 'HJ', position: { x: 200, y: 0 } },
-        { name: 'IN', position: { x: 240, y: 0 } },
-        { name: 'LK', position: { x: 280, y: 0 } },
-        { name: 'SM', position: { x: 320, y: 0 } }
-      ]
-    }
-  ];
+  choreographies: {
+    id: number;
+    name: string;
+    isVisible: boolean;
+
+    teilnehmer: {
+      name: string;
+      position: { x: number; y: number }
+    }[];
+  }[] = [];
+
   gridWidth!: number;
   gridHeight!: number;
 
@@ -70,20 +65,24 @@ export class ChoreografienComponent implements AfterViewInit {
   }
 
   addChoreography() {
-    const newId = this.choreographies.length + 1;
-    this.choreographies.push({
-      id: newId,
-      isVisible: true,
-      teilnehmer: [
-        { name: 'BC', position: { x: 40, y: 0 } },
-        { name: 'CB', position: { x: 80, y: 0 } },
-        { name: 'FL', position: { x: 120, y: 0 } },
-        { name: 'H', position: { x: 160, y: 0 } },
-        { name: 'HJ', position: { x: 200, y: 0 } },
-        { name: 'IN', position: { x: 240, y: 0 } },
-        { name: 'LK', position: { x: 280, y: 0 } },
-        { name: 'SM', position: { x: 320, y: 0 } }
-      ]
-    });
+    const name = prompt('Bitte geben Sie einen Namen für die neue Choreografie ein:');
+    if (name) {
+      const newId = this.choreographies.length + 1;
+      this.choreographies.push({
+        id: newId,
+        name: name,
+        isVisible: true,
+        teilnehmer: [
+          { name: 'BC', position: { x: 40, y: 0 } },
+          { name: 'CB', position: { x: 80, y: 0 } },
+          { name: 'FL', position: { x: 120, y: 0 } },
+          { name: 'H', position: { x: 160, y: 0 } },
+          { name: 'HJ', position: { x: 200, y: 0 } },
+          { name: 'IN', position: { x: 240, y: 0 } },
+          { name: 'LK', position: { x: 280, y: 0 } },
+          { name: 'SM', position: { x: 320, y: 0 } }
+        ]
+      });
+    }
   }
 }
