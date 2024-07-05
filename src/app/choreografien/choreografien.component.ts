@@ -7,39 +7,44 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
   styleUrls: ['./choreografien.component.css']
 })
 export class ChoreografienComponent implements AfterViewInit {
-  isDivVisible = false;
-
-  @ViewChild('choreographyGrid') choreographyGrid!: ElementRef<HTMLDivElement>;
-  teilnehmer = [
-    { name: 'BC', position: { x: 40, y: 0 } },
-    { name: 'CB', position: { x: 80, y: 0 } },
-    { name: 'FL', position: { x: 120, y: 0 } },
-    { name: 'H', position:  { x: 160, y: 0 } },
-    { name: 'HJ', position: { x: 200, y: 0 } },
-    { name: 'IN', position: { x: 240, y: 0 } },
-    { name: 'LK', position: { x: 280, y: 0 } },
-    { name: 'SM', position: { x: 320, y: 0 } }
+  @ViewChild('choreographyGrid', { static: false }) choreographyGrid!: ElementRef<HTMLDivElement>;
+  choreographies = [
+    {
+      id: 1,
+      isVisible: true,
+      teilnehmer: [
+        { name: 'BC', position: { x: 40, y: 0 } },
+        { name: 'CB', position: { x: 80, y: 0 } },
+        { name: 'FL', position: { x: 120, y: 0 } },
+        { name: 'H', position: { x: 160, y: 0 } },
+        { name: 'HJ', position: { x: 200, y: 0 } },
+        { name: 'IN', position: { x: 240, y: 0 } },
+        { name: 'LK', position: { x: 280, y: 0 } },
+        { name: 'SM', position: { x: 320, y: 0 } }
+      ]
+    }
   ];
-
   gridWidth!: number;
   gridHeight!: number;
 
   ngAfterViewInit() {
-    this.gridWidth = this.choreographyGrid.nativeElement.offsetWidth;
-    this.gridHeight = this.choreographyGrid.nativeElement.offsetHeight;
+    this.updateGridDimensions();
+  }
+
+  updateGridDimensions() {
+    if (this.choreographyGrid) {
+      this.gridWidth = this.choreographyGrid.nativeElement.offsetWidth;
+      this.gridHeight = this.choreographyGrid.nativeElement.offsetHeight;
+    }
   }
 
   onDragEnded(event: CdkDragEnd, teilnehmer: any) {
     const element: HTMLElement = event.source.element.nativeElement;
-
-    // Neue Position
     const offsetX = event.distance.x;
     const offsetY = event.distance.y;
-
     let newX = teilnehmer.position.x + offsetX;
     let newY = teilnehmer.position.y + offsetY;
 
-    // Begrenzungen
     if (newX < 0) {
       newX = 0;
     } else if (newX + element.offsetWidth > this.gridWidth) {
@@ -52,15 +57,33 @@ export class ChoreografienComponent implements AfterViewInit {
       newY = this.gridHeight - element.offsetHeight;
     }
 
-    
     teilnehmer.position.x = newX;
     teilnehmer.position.y = newY;
-
-    
     event.source.reset();
   }
 
-  toggleDiv() {
-    this.isDivVisible = !this.isDivVisible;
+  toggleDiv(id: number) {
+    const choreo = this.choreographies.find(c => c.id === id);
+    if (choreo) {
+      choreo.isVisible = !choreo.isVisible;
+    }
+  }
+
+  addChoreography() {
+    const newId = this.choreographies.length + 1;
+    this.choreographies.push({
+      id: newId,
+      isVisible: true,
+      teilnehmer: [
+        { name: 'BC', position: { x: 40, y: 0 } },
+        { name: 'CB', position: { x: 80, y: 0 } },
+        { name: 'FL', position: { x: 120, y: 0 } },
+        { name: 'H', position: { x: 160, y: 0 } },
+        { name: 'HJ', position: { x: 200, y: 0 } },
+        { name: 'IN', position: { x: 240, y: 0 } },
+        { name: 'LK', position: { x: 280, y: 0 } },
+        { name: 'SM', position: { x: 320, y: 0 } }
+      ]
+    });
   }
 }
