@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizationService } from 'C:/Users/lisha/source/repos/danceENWebNeu/src/app/shared/authorization-service.service';
-
+// import { AuthorizationService } from 'C:/Users/lisha/source/repos/danceENWebNeu/src/app/shared/authorization-service.service';
+import { AuthorizationService } from '../../shared/authorization-service.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

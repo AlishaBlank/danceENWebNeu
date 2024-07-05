@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TeilnehmerComponent } from './teilnehmer/teilnehmer.component';
 import { ChoreografienComponent } from './choreografien/choreografien.component';
 import { LiederComponent } from './lieder/lieder.component';
-import { AuthorizationService } from 'C:/Users/lisha/source/repos/danceENWebNeu/src/app/shared/authorization-service.service';
+import { AuthorizationService } from './shared/authorization-service.service';
 import { MyGuard } from './my.guard';
 import { LoginComponent } from './auth/login/login.component';
 

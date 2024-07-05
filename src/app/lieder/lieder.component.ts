@@ -1,8 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { links } from '../datamodels/Links';
 import { MatDialog } from '@angular/material/dialog';
-import { AddLinkDialogComponent } from 'C:/Users/lisha/source/repos/danceENWebNeu/src/app/add-link-dialog/add-link-dialog.component';
-
+import { AddLinkDialogComponent } from '../../app/add-link-dialog/add-link-dialog.component'
 
 @Component({
   selector: 'app-lieder',

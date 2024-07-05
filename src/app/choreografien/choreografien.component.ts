@@ -9,14 +9,14 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
 export class ChoreografienComponent implements AfterViewInit {
   @ViewChild('choreographyGrid') choreographyGrid!: ElementRef<HTMLDivElement>;
   teilnehmer = [
-    { name: 'BC', position: { x: 50, y: 25 } },
-    { name: 'CB', position: { x: 100, y: 50 } },
-    { name: 'FL', position: { x: 150, y: 75 } },
-    { name: 'H', position: { x: 200, y: 100 } },
-    { name: 'HJ', position: { x: 250, y: 125 } },
-    { name: 'IN', position: { x: 300, y: 150 } },
-    { name: 'LK', position: { x: 350, y: 175 } },
-    { name: 'SM', position: { x: 400, y: 200 } }
+    { name: 'BC', position: { x: 40, y: 0 } },
+    { name: 'CB', position: { x: 80, y: 0 } },
+    { name: 'FL', position: { x: 120, y: 0 } },
+    { name: 'H', position:  { x: 160, y: 0 } },
+    { name: 'HJ', position: { x: 200, y: 0 } },
+    { name: 'IN', position: { x: 240, y: 0 } },
+    { name: 'LK', position: { x: 280, y: 0 } },
+    { name: 'SM', position: { x: 320, y: 0 } }
   ];
 
   gridWidth!: number;
