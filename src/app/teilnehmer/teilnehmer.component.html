@@ -1,19 +1,32 @@
 <p>Hier werden die Teilnehmer angezeigt und die Anwesenheit überprüft!</p>
 
 <div>
-  <h2>Neuen Teilnehmer hinzufügen</h2>
-  <form (ngSubmit)="addOrUpdateTeilnehmer()">
-    <div>
-      <label for="vorname">Vorname:</label>
-      <input type="text" id="vorname" [(ngModel)]="newTeilnehmer.vorname" name="vorname" required>
-    </div>
-    <div>
-      <label for="nachname">Nachname:</label>
-      <input type="text" id="nachname" [(ngModel)]="newTeilnehmer.nachname" name="nachname" required>
-    </div>
-    <button mat-flat-button color="primary" type="submit">{{ selectedObject ? 'Teilnehmer aktualisieren' : 'Teilnehmer hinzufügen' }}</button>
-  </form>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Neuen Teilnehmer hinzufügen</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="addOrUpdateTeilnehmer()">
+        <div>
+          <mat-form-field>
+            <mat-label>Vorname</mat-label>
+            <input matInput type="text" id="vorname" [(ngModel)]="newTeilnehmer.vorname" name="vorname" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Nachname</mat-label>
+            <input matInput type="text" id="nachname" [(ngModel)]="newTeilnehmer.nachname" name="nachname" required>
+          </mat-form-field>
+        </div>
+        <button mat-flat-button color="primary" type="submit">
+          {{ selectedObject ? 'Teilnehmer aktualisieren' : 'Teilnehmer hinzufügen' }}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
+
 
 <div>
   <h2>Teilnehmerliste</h2>
