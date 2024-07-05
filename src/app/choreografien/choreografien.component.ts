@@ -7,6 +7,8 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
   styleUrls: ['./choreografien.component.css']
 })
 export class ChoreografienComponent implements AfterViewInit {
+  isDivVisible = false;
+
   @ViewChild('choreographyGrid') choreographyGrid!: ElementRef<HTMLDivElement>;
   teilnehmer = [
     { name: 'BC', position: { x: 40, y: 0 } },
@@ -30,7 +32,7 @@ export class ChoreografienComponent implements AfterViewInit {
   onDragEnded(event: CdkDragEnd, teilnehmer: any) {
     const element: HTMLElement = event.source.element.nativeElement;
 
-    // Calculate the new position
+    // Neue Position
     const offsetX = event.distance.x;
     const offsetY = event.distance.y;
 
@@ -50,11 +52,15 @@ export class ChoreografienComponent implements AfterViewInit {
       newY = this.gridHeight - element.offsetHeight;
     }
 
-    // Update the position of the participant
+    
     teilnehmer.position.x = newX;
     teilnehmer.position.y = newY;
 
-    // Reset the transformation to apply the new position in the DOM
+    
     event.source.reset();
+  }
+
+  toggleDiv() {
+    this.isDivVisible = !this.isDivVisible;
   }
 }

@@ -1,10 +1,14 @@
 <p>Hier kommen die Choreografien hin!</p>
+<!-- <div>
+  <button mat-flat-button color="primary" (click)="OnChoreografieHinzufuegenClicked()">Choreografie hinzufügen</button>
+</div> -->
 
-<div #choreographyGrid class="choreography-grid">
+<button mat-flat-button color="primary" (click)="toggleDiv()">Choreografie 1</button>
+<div #choreographyGrid class="choreography-grid" *ngIf="isDivVisible">
   <div *ngFor="let teilnehmer of teilnehmer"
        cdkDrag
        class="teilnehmer"
-[ngStyle]="{'left.px': teilnehmer.position.x, 'top.px': teilnehmer.position.y}" (cdkDragEnded)="onDragEnded($event, teilnehmer)">
+       [ngStyle]="{'left.px': teilnehmer.position.x, 'top.px': teilnehmer.position.y}" (cdkDragEnded)="onDragEnded($event, teilnehmer)">
     {{teilnehmer.name}}
   </div>
 </div>
